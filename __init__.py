@@ -5,7 +5,7 @@
     for both beginners and professionals. By providing an intuitive interface and automated features,
     it makes the development of complex materials accessible and efficient. Users can modify source
     files in the ../sources folder, customizing the tool to their needs and enhancing their creative
-    workflow. For more information, visit the documentation at <http://www.thiagollage.art/>.
+    workflow. For more information, visit the documentation at <https://epictoolbag.gitbook.io/docs/>.
 
     Developed by Thiago Lage, Epic Toolbag reflects a commitment to open-source software and the Blender
     community. For support, contact support@thiagolage.art. Contributions are welcome; visit the project's

@@ -27,7 +27,7 @@ Users can modify source files in the `../sources` folder, customizing the tool t
 ## Support
 For support, please contact support@thiagolage.art.
 
-For more information and documentation, visit [http://www.thiagollage.art/](http://www.thiagollage.art/).
+For more information and documentation, visit [https://epictoolbag.gitbook.io/docs/](https://epictoolbag.gitbook.io/docs/).
 
 To report bugs, please visit [https://report-bugs.netlify.app/](https://report-bugs.netlify.app/).
 
