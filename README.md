@@ -1,54 +1,59 @@
-# Epic Shader 1.1
+# Epic Toolbag Addon for Blender
 
-## Description
-Epic Shader revolutionizes the creation of shaders in Blender, offering a tool that saves time for both beginners and professionals. By providing an intuitive interface and automated features, it makes the development of complex materials accessible and efficient.
+Epic Toolbag addresses the need to assist users from beginners to advanced levels in optimizing their workflow, enhancing efficiency, and saving valuable time. This powerful and versatile addon for Blender simplifies the creation of complex shaders and facilitates a more streamlined creative process.
 
 ## Features
-- Intuitive interface for shader creation
-- Automated features for efficient workflow
-- Customizable source files
-- Extensive effects library
-- One-click shader application
+
+- **Shader Creation and Management**
+  - Apply advanced shader effects such as Outline, Cel Shading, and Dither with ease.
+  - Manage and customize materials directly from the interface, including the addition and removal of materials.
+
+- **Geometry and Topology Tools**
+  - Utilize intelligent remeshing capabilities to optimize mesh topology.
+  - Access tools for marking sharp edges and seams, and perform smart UV unwraps.
+
+- **HDRI and Environment Management**
+  - Easily add, apply, and navigate HDRI textures to enhance scene lighting and realism.
+  - Manage environment settings with intuitive controls for rotation and intensity adjustments.
+
+- **Lighting and Camera Control**
+  - Create and manage lights and cameras within your scene, complete with customizable properties and positions.
+  - Switch between different camera views and lighting setups seamlessly.
+
+- **User Interface Enhancements**
+  - Expandable and collapsible sections for streamlined workflow and workspace organization.
+  - Direct access to shader, topology, and import tools from the sidebar.
 
 ## Installation
-1. Download the Epic Shader addon.
-2. In Blender, go to Edit > Preferences > Add-ons.
-3. Click "Install" and select the downloaded file.
-4. Enable the addon by checking the box next to "Epic Shader".
+
+1. Download the latest version of the Epic Toolbag addon from the [official repository](#).
+2. Open Blender and go to `Edit > Preferences`.
+3. In the Preferences window, navigate to the `Add-ons` section and click `Install`.
+4. Select the downloaded `.zip` file and click `Install Add-on`.
+5. Enable the addon by checking the box next to "Epic Toolbag" in the list of available add-ons.
 
 ## Usage
-After installation, you can find the Epic Shader panel in the 3D Viewport's sidebar under the "Epic Shader Tab".
 
-Users can modify source files in the `../sources` folder, customizing the tool to their needs and enhancing their creative workflow.
+- Access the Epic Toolbag panel from the `VIEW_3D` sidebar under the "Epic Toolbag" tab.
+- Navigate through the sections to apply shaders, manage materials, and control lighting and environment settings.
+- Use the integrated tools to enhance your workflow, from creating primitives to applying complex shader effects.
 
-## Requirements
-- Blender 2.80 or newer
+## Support and Documentation
 
-## Support
-For support, please contact support@thiagolage.art.
+For support, please contact [support@thiagolage.art](mailto:support@thiagolage.art).
 
-For more information and documentation, visit [https://epictoolbag.gitbook.io/docs/](https://epictoolbag.gitbook.io/docs/).
+For more information and detailed documentation, visit the [Epic Toolbag Documentation](https://epictoolbag.gitbook.io/docs).
 
-To report bugs, please visit [https://report-bugs.netlify.app/](https://report-bugs.netlify.app/).
-
-## Contributing
-Contributions are welcome! Please visit the project's repository for more information on how to contribute.
+To report bugs or issues, please visit [Bug Tracker](https://report-bugs.netlify.app/).
 
 ## License
-Epic Shader is open-source software licensed under the GNU General Public License v3.0 or later.
 
-You can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Epic Toolbag is licensed under the GNU General Public License v3.0. You are free to redistribute and/or modify it under the terms of this license. See the [LICENSE](#) file for more details.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+## Contributing
 
-You should have received a copy of the GNU General Public License along with this program. If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
-
-## Version History
-- 1.1: Current version
-- 1.0: Initial release
+We welcome contributions from the community! Please visit the [project repository](#) for more information on how to get involved.
 
 ---
 
-Developed by Thiago Lage
-
-Epic Shader reflects a commitment to open-source software and the Blender community.
+Thank you for using Epic Toolbag! We hope it enhances your Blender experience and accelerates your creative projects.
