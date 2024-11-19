@@ -1215,31 +1215,34 @@ class AddTextMaterial(bpy.types.Operator):
 
     def execute(self, context):
         obj = context.active_object
+
         if obj and obj.type == 'FONT':
+            # Cria um novo material
             mat = bpy.data.materials.new(name="Material Text")
             mat.use_nodes = True
             nodes = mat.node_tree.nodes
             nodes.clear()
-            
-            # Adiciona nó Principled BSDF
+
+            # Adiciona e configura o nó Principled BSDF
             node_principled = nodes.new(type='ShaderNodeBsdfPrincipled')
             node_output = nodes.new(type='ShaderNodeOutputMaterial')
             node_principled.location = (0, 0)
             node_output.location = (200, 0)
-            
+
             # Conecta os nós
             links = mat.node_tree.links
             links.new(node_principled.outputs['BSDF'], node_output.inputs['Surface'])
-            
+
             # Adiciona o material ao objeto
             if obj.data.materials:
                 obj.data.materials[0] = mat
             else:
                 obj.data.materials.append(mat)
-            
+
             self.report({'INFO'}, "Text Material added")
         else:
             self.report({'ERROR'}, "No text object selected")
+        
         return {'FINISHED'}
 
 class SmartUVUnwrap(bpy.types.Operator):

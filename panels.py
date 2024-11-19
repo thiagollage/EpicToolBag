@@ -505,7 +505,7 @@ class EpicToolBagAddonPanel(Panel):
         else:
             box = layout.box()
             col = box.column(align=True)
-            
+
             # Título principal centralizado
             row = col.row()
             row.alignment = 'CENTER'
@@ -516,6 +516,25 @@ class EpicToolBagAddonPanel(Panel):
             warning_row.alignment = 'CENTER'
             warning_row.alert = True
             warning_row.label(text="No object or material selected.", icon='ERROR')
+            
+            # Adiciona espaçamento sutil
+            col.separator(factor=0.8)
+            
+            # Adiciona a linha horizontal de primitivos centralizados
+            row_primitives = col.row(align=True)
+            row_primitives.alignment = 'CENTER'
+            primitive_meshes = [
+                ("epictoolbag.create_primitive_cube", 'MESH_CUBE', "Cube"),
+                ("epictoolbag.create_primitive_uv_sphere", 'MESH_UVSPHERE', "UV Sphere"),
+                ("epictoolbag.create_primitive_cylinder", 'MESH_CYLINDER', "Cylinder"),
+                ("epictoolbag.create_primitive_cone", 'MESH_CONE', "Cone"),
+                ("epictoolbag.create_primitive_torus", 'MESH_TORUS', "Torus"),
+                ("epictoolbag.create_primitive_plane", 'MESH_PLANE', "Plane"),
+                ("epictoolbag.create_text", 'FONT_DATA', "Text"),
+            ]
+            
+            for op, icon, _ in primitive_meshes:
+                row_primitives.operator(op, text="", icon=icon)
             
     def draw_single_modifier(self, layout, mod, obj, context):
         # Depuração
@@ -755,12 +774,8 @@ class EpicToolBagAddonPanel(Panel):
         row.scale_y = 1.5
         row.prop_search(obj, "active_material", bpy.data, "materials", text="Material")
         
-        if obj.data.materials:
-            current_mat = obj.active_material
-            if current_mat and current_mat.use_nodes:
-                principled_node = current_mat.node_tree.nodes.get("Principled BSDF")
-                if principled_node:
-                    row.operator("epictoolbag.add_text_material", text="", icon='ADD')
+        # Botão "Add Text Material" sempre visível
+        row.operator("epictoolbag.add_text_material", text="", icon='ADD')
 
         if mat and mat.use_nodes:
             principled_node = mat.node_tree.nodes.get("Principled BSDF")
@@ -787,7 +802,7 @@ class EpicToolBagAddonPanel(Panel):
             row_info.alignment = 'CENTER'
             row_info.label(text="Select a Material", icon='ERROR')
         
-        # New Box for "Add Modifiers" or "Apply Convert to Mesh"
+        # New Box for " or "Apply Convert to Mesh"
         box_modifiers = layout.box()
         row_modifiers = box_modifiers.row(align=True)
         row_modifiers.scale_y = 1.2
@@ -930,28 +945,6 @@ class EpicToolBagAddonPanel(Panel):
         obj = context.active_object
 
         if obj and obj.type == 'MESH':
-            row = layout.row()
-            row.scale_y = 1.5
-            row.operator("epictoolbag.toggle_expand_topology_tools", 
-                        icon='DOWNARROW_HLT' if scene.expand_topology_tools else 'RIGHTARROW', 
-                        text="Topology")
-            
-            if scene.expand_topology_tools:
-                box = layout.box()
-                col = box.column(align=True)
-                col.scale_y = 1.5
-
-                row = col.row(align=True)
-                row.scale_y = 1.2
-                row.prop(scene, "topology_view_mode", expand=True)
-
-                col.separator()
-
-    def draw_misc_panel(self, layout, context, force_collapse=False):
-        scene = context.scene
-        obj = context.active_object
-
-        if obj and obj.type == 'MESH':
             # Linha para o botão de expansão das ferramentas de topologia
             row = layout.row()
             row.scale_y = 1.5
@@ -990,28 +983,22 @@ class EpicToolBagAddonPanel(Panel):
                     # Controle deslizante para preservação de detalhes
                     row = remesh_col.row(align=True)
                     row.prop(scene.epic_advanced_remesh, "detail_preservation", text="", slider=True)
-                    
-                    # Symmetry com ícone e caixas alinhadas à direita abaixo da barra de porcentagem
-                    symmetry_row = remesh_col.row(align=True)
-                    symmetry_row.alignment = 'EXPAND'
-                    symmetry_row.label(text="Symmetry", icon='MOD_MIRROR')
 
-                    # Alinhar as caixas XYZ à direita
-                    symmetry_boxes = symmetry_row.row(align=True)
-                    symmetry_boxes.alignment = 'RIGHT'
-                    symmetry_boxes.prop(scene.epic_advanced_remesh, "symmetry_x", text="X")
-                    symmetry_boxes.prop(scene.epic_advanced_remesh, "symmetry_y", text="Y")
-                    symmetry_boxes.prop(scene.epic_advanced_remesh, "symmetry_z", text="Z")
+                    # Alinhar a caixa de seleção à direita
+                    smooth_control_row = remesh_col.row(align=True)
+                    smooth_control_row.alignment = 'RIGHT'
+                    smooth_control_row.prop(scene.epic_advanced_remesh, "apply_smooth", text="Apply Smooth?")
                     
                     # Botão para executar o Remesh
                     row = remesh_col.row(align=True)
                     row.scale_y = 1.5
-                    row.operator("epictoolbag.advanced_remesher", text="Advanced Remesh")
+                    row.operator("epictoolbag.advanced_remesher", text="(beta) RemeshPRO")
                     
                     # Seção para exibição de métricas de desempenho
                     if scene.epic_advanced_remesh.remesh_performance_metrics:
                         try:
-                            metrics = eval(scene.epic_advanced_remesh.remesh_performance_metrics)
+                            # Use json.loads em vez de eval
+                            metrics = json.loads(scene.epic_advanced_remesh.remesh_performance_metrics)
                             perf_box = remesh_col.box()
                             perf_col = perf_box.column(align=True)
                             
@@ -1030,16 +1017,10 @@ class EpicToolBagAddonPanel(Panel):
                             # Contagem de polígonos original
                             poly_row = perf_col.row(align=True)
                             poly_row.alignment = 'LEFT'
-                            poly_row.label(text="Original Count:", icon='MESH_CUBE')
+                            poly_row.label(text="Poly Count:", icon='MESH_CUBE')
                             poly_row.label(text=str(metrics['original_poly_count']))
-                            
-                            # Nova contagem de polígonos
-                            poly_new_row = perf_col.row(align=True)
-                            poly_new_row.alignment = 'LEFT'
-                            poly_new_row.label(text="New Count:", icon='MESH_GRID')
-                            poly_new_row.label(text=str(metrics['new_poly_count']))
                         
-                        except Exception as e:
+                        except json.JSONDecodeError as e:
                             self.report({'ERROR'}, f"Error processing performance metrics: {e}")
                         
                 elif scene.topology_view_mode == 'UV_MAPPING':
