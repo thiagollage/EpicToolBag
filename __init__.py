@@ -1,19 +1,24 @@
 '''
-== Epic Toolbag 2.0 ==
+    == Epic Toolbag 2.0 ==  
 
-Epic Toolbag revolutionizes shader creation in Blender by offering a robust tool that significantly reduces time for both beginners and professionals.
-With its intuitive interface and automated features, the addon makes the development of complex materials both accessible and efficient.
-Users can tailor the tool to their specific needs by modifying source files located in the `../sources` folder, thereby enhancing their creative workflow.
-For detailed information, please visit our documentation at [https://epictoolbag.gitbook.io/docs/](https://epictoolbag.gitbook.io/docs/).
+    Epic Toolbag revolutionizes the creation of shaders in Blender, offering a tool that saves time
+    for both beginners and professionals. By providing an intuitive interface and automated features,
+    it makes the development of complex materials accessible and efficient. Users can modify source
+    files in the ../sources folder, customizing the tool to their needs and enhancing their creative
+    workflow. For more information, visit the documentation at <https://epictoolbag.gitbook.io/docs/>.
 
-Developed by Thiago Lage, Epic Toolbag reflects a strong commitment to open-source software and the vibrant Blender community. For support,
-please contact us at [support@thiagollage.art](mailto:thiagollage@gmail.com). Contributions are highly encouraged; visit the project's repository for more information.
+    Developed by Thiago Lage, Epic Toolbag reflects a commitment to open-source software and the Blender
+    community. For support, contact thiagollage@gmail.com. Contributions are welcome; visit the project's
+    repository for more information.
 
-Epic Toolbag is distributed under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version. This program is provided in the hope that it will be useful, but it comes WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. For more details, refer to the GNU General Public License.
+    You can redistribute it and/or modify it under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+    the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+    License for more details.
 
-A copy of the GNU General Public License should have been provided along with this program. If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
+    You should have received a copy of the GNU General Public License along with this program. If not, see
+    <http://www.gnu.org/licenses/>.
 '''
 
 import bpy

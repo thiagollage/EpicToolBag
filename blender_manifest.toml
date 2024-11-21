@@ -1,0 +1,75 @@
+# Blender Addon Manifest for Epic Toolbag 2.0
+
+[addon]
+name = "Epic Toolbag"
+version = "2.0"
+blender = [
+    "4.3",
+    "4.2",
+    "4.1",
+    "4.0",
+    "3.6",
+    "3.5",
+    "3.4",
+    "3.3",
+    "3.2",
+    "3.1",
+    "3.0",
+    "2.93",
+    "2.92",
+    "2.91",
+    "2.9",
+    "2.83",
+    "2.82",
+    "2.81",
+    "2.8"
+]
+location = "View3D > Sidebar > Epic Toolbag"
+description = "Revolutionize shader creation with intuitive UI and automated features."
+category = "Material"
+author = "Thiago Lage"
+support = "COMMUNITY"
+
+[files]
+# Main module files
+  init = "__init__.py"
+  panels = "panels.py"
+  render = "render.py"
+  shader = "shader.py"
+  utils = "utils.py"
+
+# Additional source files and assets
+  sources = [
+    "source/CreateOutlineSetup.blend",
+    "source/CelShaderSetup.blend",
+    "source/DitherSetup.blend",
+    # Add any additional source files here
+  ]
+
+[dependencies]
+# Define any dependencies your addon might have
+bpy = "2.80"
+
+[images]
+# Screenshot or icon files for the addon
+  icon = "assets/icon.png"
+  screenshots = [
+    "assets/screenshot1.png",
+    "assets/screenshot2.png",
+    # Add more screenshots if needed
+  ]
+
+[documentation]
+# Documentation links
+  url = "https://epictoolbag.gitbook.io/docs/"
+
+[support]
+# Support and contact information
+  email = "thiagollage@gmail.com"
+  website = "https://x.com/thiagollage"
+  bugtracker = "https://report-bugs.netlify.app/"
+
+[license]
+# Licensing information
+  type = "MIT"
+  url = "https://opensource.org/licenses/MIT"
